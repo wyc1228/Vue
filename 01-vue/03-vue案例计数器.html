@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Dom层-->
+<div id="app">
+    <h2>计数：{{count}}</h2>
+    <button v-on:click="add">+</button>
+    <button v-on:click="up">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    /*Model层*/
+    const obj = {
+        count: 0
+    };
+
+    /*viewModel层*/
+    const app = new Vue({
+        el: '#app',
+        data: obj,
+        methods: {
+            add: function () {
+                this.count++
+            },
+            up: function () {
+                this.count--
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

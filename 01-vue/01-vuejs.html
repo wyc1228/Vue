@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<div id="app">
+    <span>{{message}}</span>
+</div>
+
+<div id="list">
+    <ul>
+        <li v-for = 'item in movies'>{{item}}</li>
+    </ul>
+</div>
+
+<!--这里注意，这个script导入vue文件必须要放在div下面，否则不显示-->
+<script src="../js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello VueJS'
+        }
+    });
+
+    let list = new Vue({
+        el: '#list',
+        data: {
+            movies: ['海贼王','火影忍者']
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        {
+            var name = "hello";
+            console.log(name)
+        }
+        // var定义的变量没有块级作用域，任何位置都能访问(相当于局部变量和全局变量的区别)
+        console.log(name)
+
+
+        var btns = document.getElementsByTagName("button");
+        for (var i=0;i<btns.length;i++){
+            btns[i].addEventListener('click',function(){
+                console.log('第' + i + '个按钮被点击')
+            })
+        }
+    </script>
+</body>
+</html>
