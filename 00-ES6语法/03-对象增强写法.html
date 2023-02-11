@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //ES6中，对对象字面量进行了很多增强
+
+    // 1、属性的简写
+    let name = 'why'
+    let age = 18
+    // ES6之前
+    let obj1 = {
+        name:name,
+        age:age
+    }
+    console.log(obj1);
+    //ES6之后
+    let obj2 = {
+        name,age
+    }
+    console.log(obj2);
+
+    // 2、函数的增强写法
+    // ES6之前
+    const obj1 = {
+        run: function (){
+
+        },
+        eat: function (){
+
+        }
+    }
+    // ES6之后
+    const obj2 = {
+        run(){
+
+        },
+        eat(){
+
+        }
+    }
+</script>
+</body>
+</html>

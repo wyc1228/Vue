@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <div v-for="item in names">
+        {{item}}
+    </div>
+    <!--加索引-->
+    <div v-for="(item,index) in names">
+        {{index}}-{{item}}
+    </div>
+
+    <!--遍历对象,拿到的都是value-->
+    <div v-for="item in info">
+        {{item}}
+    </div>
+    <div v-for="(value,key) in info">
+        {{key}}-{{value}}
+    </div>
+    <div v-for="(value,key,index) in info">
+        {{key}}-{{value}}-{{index}}
+    </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            names:['why','what','how'],
+            info:{
+                name:'wyc',
+                age:20,
+                height:1.7
+            }
+        },
+    })
+</script>
+</body>
+</html>

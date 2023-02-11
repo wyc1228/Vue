@@ -7,21 +7,49 @@
     <title>Document</title>
 </head>
 <body>
+
+<button>button1</button>
+<button>button2</button>
+<button>button3</button>
+<button>button4</button>
+
+
+
     <script>
+        // 1、变量作用域：变量在什么范围内是可用的
         {
             var name = "hello";
             console.log(name)
         }
         // var定义的变量没有块级作用域，任何位置都能访问(相当于局部变量和全局变量的区别)
+        // 更推荐使用let和const语法
         console.log(name)
 
+        // 2、没有块级作用域引起的问题
+        var func;
+        if (true) {
+            var name = 'why'
+            func = function () {
+                console.log(name);
+            }
+            func();
+        }
+        func();
 
+        // 这里每个按钮打印出来都是btns.length的值
         var btns = document.getElementsByTagName("button");
         for (var i=0;i<btns.length;i++){
             btns[i].addEventListener('click',function(){
                 console.log('第' + i + '个按钮被点击')
             })
         }
+
+        // const btns = document.getElementsByTagName("button");
+        // for (let i=0;i<btns.length;i++){
+        //     btns[i].addEventListener('click',function(){
+        //         console.log('第' + i + '个按钮被点击')
+        //     })
+        // }
     </script>
 </body>
 </html>

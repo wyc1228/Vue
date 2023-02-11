@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--第一种方案：拼接-->
+    <h2>{{firstName}} {{lastName}}</h2>
+    <!--第二种方案：通过定义methods ，， 在多次使用时，computed只会调用一次-->
+    <h2>{{getFullName()}}</h2>
+    <!--第三种方案：通过计算属性computed,,最好使用第三种方案，在多次使用时，computed只会调用一次（内部有缓存，没变化就会返回之前的结果）-->
+    <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'kobe',
+            lastName: 'Bryant'
+        },
+        methods:{
+            getFullName:function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        },
+        //计算属性
+        computed:{
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        }
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <!--key和绑定的item元素一一对应-->
+    <div v-for="item in names" :key="item">
+        {{item}}
+    </div>
+    <button @click="btnClick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            names:['why','what','how'],
+        },
+        //数组中响应式方法
+        methods: {
+            btnClick(){
+                // 1、push方法，在数组最后添加元素
+                // this.names.push('aaa')
+                // 2、pop方法,删除最后一个元素
+                this.names.pop()
+                // 3、shift方法，删除第一个元素
+                this.names.shift()
+                // 4、unshift方法，在数组最前面添加元素
+                this.names.unshift('aaa')
+                // 5、splice方法,删除，插入，替换某个索引之后的几个元素
+                this.names.splice(1,1)
+                // 6、sort方法，排序数组
+                this.name.sort()
+                // 7、reverse方法，反转函数
+                this.name.reverse()
+
+                //通过索引值修改数组中的元素(不是响应式的，值改了，页面没刷新)
+                this.names[0] = 'aaa'
+                // 可以使用splice来替换，也可以使用vue来修改,这些时响应式的
+                Vue.set(this.names, 0 ,'aaa')
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

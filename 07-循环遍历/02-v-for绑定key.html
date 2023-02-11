@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <!--key和绑定的item元素一一对应-->
+    <div v-for="item in names" :key="item">
+        {{item}}
+    </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    //官方推荐：在使用v-for时，给对应元素或组件添加一个:key属性
+    const app = new Vue({
+        el:'#app',
+        data:{
+            names:['why','what','how'],
+        },
+    })
+</script>
+</body>
+</html>

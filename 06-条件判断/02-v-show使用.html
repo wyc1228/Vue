@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <div v-if="flag">
+        {{counter}}
+    </div>
+    <div v-show="flag">
+        {{counter}}
+    </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // v-show和v-if区别：
+    // v-if：条件为false时，对应元素不会存在dom中，变为true时，又会重新创建，在不停的创建和删除
+    // v-show：条件为false时，对应元素只是增加了一个行内样式：display:none
+    // 开发中：显示和隐藏之间切换频率非常高时，选择v-show，只会切换一次时，使用v-if
+
+    const app = new Vue({
+        el:'#app',
+        data:{
+            flag:true,
+            counter:0
+        },
+        methods:{
+            doThis(){
+                this.counter--
+            }
+        }
+    })
+</script>
+</body>
+</html>
