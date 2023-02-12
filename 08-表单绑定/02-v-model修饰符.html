@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <!--修饰符：lazy,不会实时绑定，只有使用时才会绑定，例如输入后敲回车-->
+    <input type="text" v-model.lazy="message">
+
+    <!--修饰符：number,只能输入数字,v-model绑定的是String类型，绑定了.number就可以变为number类型-->
+    <input type="text" v-model.number="age">
+
+    <!--修饰符：trim,清楚左右两边的空格-->
+    <input type="text" v-model.trim="name">
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // v-model 双向绑定
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'你好啊',
+            age: 0,
+            name:'  aaaa  '
+        },
+        methods:{
+            change(event){
+                this.message = event.target.value;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+    <!--两种绑定方式-->
+    <input type="text" v-model="message">
+    <!--输入框的使用-->
+    <!--动态监听输入指令-->
+    <input type="text" v-bind:value="message" v-on:input="change">
+    {{message}}
+    <input type="text" :value="message" v-on:input="change">
+
+
+    <!--单选框的使用-->
+    <label for="male">
+        <input type="radio" id = 'male' value="男" v-model="sex"> 男
+    </label>
+    <label for="female">
+        <input type="radio" id = 'female'  value="女" v-model="sex"> 女
+    </label>
+
+    <!--复选框的使用-->
+    <label for="agree">
+        <input type="checkbox" id="agree" v-model="agree"> 同意
+    </label>
+    <!--多选框-->
+    <input type="checkbox" value="篮球" v-model="hobbies"> 篮球
+    <input type="checkbox" value="足球" v-model="hobbies"> 足球
+    <input type="checkbox" value="排球" v-model="hobbies"> 排球
+    爱好{{hobbies}}
+
+    <!--v-model结合select-->
+    <!--单选-->
+    <select name="abc" id="" v-model="fruit">
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="榴莲">榴莲</option>
+    </select>
+
+    <!--多选,按住command-->
+    <select name="abc"  v-model="fruits" multiple>
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="榴莲">榴莲</option>
+    </select>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // v-model 双向绑定
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'你好啊',
+            sex: '男',
+            agree: true,
+            hobbies:[],
+            fruit:'香蕉',
+            fruits:[]
+        },
+        methods:{
+            change(event){
+                this.message = event.target.value;
+            }
+        }
+    })
+</script>
+</body>
+</html>
