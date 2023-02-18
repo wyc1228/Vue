@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <!--使用组件-->
+    <cpn :cmovies="movies" :cmessage="message" :c-name="name"></cpn>
+</div>
+
+<template id="cpn">
+    // 组件中多个标签，必须包含在div中
+    <div>
+        <p>{{cmovies}}</p>
+        <h2>{{cmessage}}</h2>
+        <h2>{{cName}}</h2>
+    </div>
+</template>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    // 父传子：props
+    const cpn = {
+        template: '#cpn',
+        // props: ['cmovies','cmessage'],
+        props: {
+            //1、类型限制
+            // cmovies:Array,
+            // cmessage:String
+
+            //2、提供一些默认值，以及是否必传值
+            cmessage:{
+                type: String,
+                default: 'world',
+                required: true // 必须要传变量
+            },
+            // 类型是对象或者数组时，默认值必须是一个函数
+            cmovies:{
+                type:Array,
+                default(){
+                    return ['死神']
+                }
+            },
+
+            // 驼峰标识
+            cName:{
+                type:String,
+                default: ''
+            },
+
+        },
+        data(){
+            return {}
+        },
+        methods:{
+        }
+
+    }
+
+    // 可以当成root，根组件
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message:'hello',
+            movies: ['海贼王','火影','柯南'],
+            name:'Halo'
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>
